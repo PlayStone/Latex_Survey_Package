@@ -1,7 +1,8 @@
-# Latex_Survey_Package
+# Survey package for latex
 
-Example:
+## Example:
 
+```
 \documentclass{scrartcl}
 
 \usepackage{fragebogen}
@@ -47,3 +48,4 @@ Example:
 \end{questionblock}
 
 \end{document}
+```
