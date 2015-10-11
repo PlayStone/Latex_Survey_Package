@@ -1,0 +1,88 @@
+% packages
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{graphicx}
+\usepackage[dot, phantomtext]{dashundergaps} 
+\usepackage{enumitem} 
+\usepackage{wasysym} 
+\usepackage{multicol}
+\usepackage{lmodern} 
+\usepackage{xcolor}
+\usepackage{ifthen}
+
+
+% own environment
+\newcounter{questionCounter}
+\newcommand{\Underlining}{\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_}
+
+\newenvironment {questionblock}
+                [1]
+                {
+									\section*{#1}
+									\begin{description}
+										\setcounter{questionCounter}{1}
+								}
+                {
+									\end{description}
+								}
+
+\newenvironment {question}
+                [1]
+                {
+									\item[Frage \arabic{questionCounter}] #1%
+										\begin{multicols}{2}
+											\begin{itemize}[label={\Square}]
+								}
+                {
+										\end{itemize}
+									\end{multicols}
+									\stepcounter{questionCounter}
+								}
+
+\newcommand {\textquestion}
+                [2]
+                {
+									\item[Frage \arabic{questionCounter}] #1%
+										\begin{multicols}{2}
+											\begin{itemize}[label={\Square}]
+												\vspace*{#2}
+                									\item[]
+										\end{itemize}
+									\end{multicols}
+									\stepcounter{questionCounter}
+				}
+                
+\newcommand {\textpicquestion}
+                [4]
+                                [1]
+                {
+									\item[Frage \arabic{questionCounter}] #2%
+                                    \item[] \center{\includegraphics[width=0.3#1\textwidth]{#4}}
+										\begin{multicols}{2}
+											\begin{itemize}[label={\Square}]
+												\vspace*{#3}
+                									\item[]
+										\end{itemize}
+									\end{multicols}
+									\stepcounter{questionCounter}
+				}
+
+								
+\newenvironment {picquestion}
+                [3]
+								[1]
+                {
+									\item[Frage \arabic{questionCounter}] #2%
+									\item[] \center{\includegraphics[width=0.3#1\textwidth]{#3}}
+										\begin{multicols}{2}
+											\begin{itemize}[label={\Square}]
+								}
+                {
+											\end{itemize}
+									\end{multicols}
+									\stepcounter{questionCounter}
+								}
+								
+
+% stuff
+\parskip=0pt 
